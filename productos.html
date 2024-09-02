@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería Ferremax - Productos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .product-img {
+            transition: transform 0.3s ease;
+        }
+        .product-img:hover {
+            transform: scale(1.1);
+        }
+        .product-card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Ferretería Ferremax</h1>
+        <nav>
+            <a href="index.html" class="text-white mx-2">Inicio</a>
+            <a href="productos.html" class="text-white mx-2">Productos</a>
+            <a href="contact.html" class="text-white mx-2">Contacto</a>
+            <a href="policies.html" class="text-white mx-2">Políticas</a>
+            <a href="login.html" class="text-white mx-2">Iniciar Sesión</a>
+            <a href="register.html" class="text-white mx-2">Registrarse</a>
+        </nav>
+    </header>
+
+    <div class="container mt-5" id="content">
+        <h2 class="text-center mb-4">Nuestros Productos</h2>
+        <div class="row">
+            <!-- Producto 1 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://www.ofertason.com/wp-content/uploads/2016/01/taladro-inalambrico-Einhell-TC-CD-12-Li.jpg" class="card-img-top product-img" alt="Taladro Inalámbrico">
+                    <div class="card-body">
+                        <h5 class="card-title">Taladro Inalámbrico</h5>
+                        <p class="card-text">$150.00</p>
+                        <a href="#" class="btn btn-primary">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="http://www.stanleysites.com/uploads/eu/LW2-2016/large/FMEH750_1.jpg" class="card-img-top product-img" alt="Lijadora Orbital">
+                    <div class="card-body">
+                        <h5 class="card-title">Lijadora Orbital</h5>
+                        <p class="card-text">$75.00</p>
+                        <a href="#" class="btn btn-primary">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://www.construcolor.com.co/wp-content/uploads/2021/05/Martillo-de-una-29mm1.jpg" class="card-img-top product-img" alt="Martillo">
+                    <div class="card-body">
+                        <h5 class="card-title">Martillo</h5>
+                        <p class="card-text">$30.00</p>
+                        <a href="#" class="btn btn-primary">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white p-3 text-center mt-5">
+        <p>&copy; 2024 Ferretería Ferremax - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Verificar si el usuario está registrado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('userLoggedIn')) {
+                window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+            }
+        });
+    </script>
+</body>
+</html>
