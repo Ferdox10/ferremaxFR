@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería Ferremax - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2 {
+            color: #fff;
+            background-color: #ff6600; /* Naranja para los encabezados */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .modal-dialog {
+            max-width: 500px;
+        }
+
+        #logoutButton {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #inspirationalMessage {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #0033cc; /* Azul para las palabras sabias */
+            font-size: 1.2rem; /* Aumento del tamaño de la fuente */
+        }
+
+        footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: #ff6600; /* Naranja para el pie de página */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #ffc107; /* Amarillo dorado */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0px 0px 10px 0px #ffc107;
+        }
+
+        #toolEmoji {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+        }
+
+        /* Estilos adicionales */
+        .navbar-brand, .nav-link {
+            color: #fff;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ff6600; /* Naranja al pasar el mouse */
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #0033cc; /* Azul para el botón de inicio de sesión */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #002a80; /* Azul oscuro al pasar el mouse */
+        }
+
+        .modal-content {
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Ferretería Ferremax</h1>
+        <nav>
+            <a href="index.html" class="text-white mx-2">Inicio</a>
+            <a href="productos.html" class="text-white mx-2">Productos</a>
+            <a href="contact.html" class="text-white mx-2">Contacto</a>
+            <a href="policies.html" class="text-white mx-2">Políticas</a>
+            <a href="login.html" class="text-white mx-2">Iniciar Sesión</a>
+            <a href="register.html" class="text-white mx-2">Registrarse</a>
+            <button id="logoutButton" class="btn btn-danger">Cerrar Sesión</button>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <p class="mt-2">¿Olvidaste tu <a href="#" data-toggle="modal" data-target="#recoverModal">contraseña</a>?</p>
+        </form>
+        <div id="inspirationalMessage">
+            "La verdadera medida de un hombre no se encuentra en los momentos de comodidad y conveniencia, sino en aquellos en los que desafía la adversidad." – Martin Luther King Jr.
+        </div>
+    </div>
+
+    <!-- Modal de Recuperación de Contraseña -->
+    <div class="modal fade" id="recoverModal" tabindex="-1" role="dialog" aria-labelledby="recoverModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recoverModalLabel">Recuperación de Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="recoverForm">
+                        <div class="form-group">
+                            <label for="recoverEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="recoverEmail" placeholder="Ingresa tu correo electrónico" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Instrucciones</button>
+                    </form>
+                    <div id="recoverMessage" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white p-3 text-center mt-5">
+        <p>&copy; 2024 Ferretería Ferremax - Todos los derechos reservados</p>
+    </footer>
+
+    <div id="toolEmoji">🔧</div> <!-- Emoji de herramienta -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Función para manejar el envío del formulario de recuperación
+        document.getElementById('recoverForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('recoverEmail').value;
+            const messageDiv = document.getElementById('recoverMessage');
+            
+            // Aquí puedes añadir la lógica para enviar el correo de recuperación
+            messageDiv.innerHTML = '<p>Las instrucciones para recuperar tu contraseña han sido enviadas a tu correo electrónico.</p>';
+        });
+
+        // Verificar si el usuario está registrado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('userLoggedIn')) {
+                document.getElementById('loginForm').style.display = 'none'; // Ocultar el formulario de inicio de sesión
+                document.getElementById('logoutButton').style.display = 'block'; // Mostrar el botón de cierre de sesión
+            }
+        });
+
+        // Manejar el envío del formulario de inicio de sesión
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Aquí deberías implementar una verificación real
+            localStorage.setItem('userLoggedIn', 'true');
+            document.getElementById('loginForm').style.display = 'none'; // Ocultar el formulario
+            document.getElementById('logoutButton').style.display = 'block'; // Mostrar el botón de cierre de sesión
+        });
+
+        // Manejar el clic en el botón de cierre de sesión
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('userLoggedIn');
+            document.getElementById('loginForm').style.display = 'block'; // Mostrar el formulario de inicio de sesión
+            document.getElementById('logoutButton').style.display = 'none'; // Ocultar el botón de cierre de sesión
+            window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+        });
+
+        // Mostrar emoji de herramientas cuando el mouse se mueve
+        document.addEventListener('mousemove', function() {
+            document.getElementById('toolEmoji').style.display = 'block';
+        });
+
+        // Ocultar el emoji después de 5 segundos sin movimiento
+        let hideEmojiTimer;
+        document.addEventListener('mousemove', function() {
+            clearTimeout(hideEmojiTimer);
+            document.getElementById('toolEmoji').style.display = 'block';
+            hideEmojiTimer = setTimeout(function() {
+                document.getElementById('toolEmoji').style.display = 'none';
+            }, 5000); // Ocultar después de 5 segundos
+        });
+    </script>
+</body>
+</html>
