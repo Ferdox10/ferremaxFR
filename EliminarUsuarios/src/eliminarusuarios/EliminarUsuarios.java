@@ -1,4 +1,4 @@
-package ferreteriaferremax;
+package eliminarusuarios;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
