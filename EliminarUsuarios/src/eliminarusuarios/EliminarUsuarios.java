@@ -22,7 +22,7 @@ public class EliminarUsuarios {
             Statement stmt = conn.createStatement();
 
             // IDs de los usuarios a eliminar (incluye el usuario con ID 12 que mencionaste)
-            int[] idsAEliminar = {15}; // Aquí coloca los IDs de los usuarios que deseas eliminar
+            int[] idsAEliminar = {18}; // Aquí coloca los IDs de los usuarios que deseas eliminar
 
             for (int id : idsAEliminar) {
                 String sqlDelete = "DELETE FROM usuarios WHERE id = " + id;
