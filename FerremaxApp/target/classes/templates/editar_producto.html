@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Editar Producto</h1>
+    <form th:action="@{/productos/editar/{id}(id=${producto.idProducto})}" th:object="${producto}" method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" th:field="*{descripcion}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="precioUnitario">Precio Unitario:</label>
+            <input type="number" id="precioUnitario" th:field="*{precioUnitario}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" th:field="*{marca}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="codigoBarras">Código de Barras:</label>
+            <input type="text" id="codigoBarras" th:field="*{codigoBarras}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="idCategoria">ID Categoría:</label>
+            <input type="number" id="idCategoria" th:field="*{idCategoria}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" th:field="*{cantidad}" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="/productos" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>

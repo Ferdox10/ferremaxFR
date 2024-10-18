@@ -1,0 +1,5 @@
+com\example\FerremaxAppApplication.class
+com\example\ProductoRepository.class
+com\example\Producto.class
+com\example\ProductoService.class
+com\example\ProductoController.class
