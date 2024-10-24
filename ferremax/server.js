@@ -8,7 +8,18 @@ app.use(cors());
 app.use(express.json());
 
 // Almacenamiento temporal de usuarios
-let usuarios = [];
+let usuarios = [
+    { id: '1', nombre: 'Juan Perez', email: 'juan.perez@example.com' },
+    { id: '2', nombre: 'Maria Gomez', email: 'maria.gomez@example.com' },
+    { id: '3', nombre: 'Carlos Ramirez', email: 'carlos.ramirez@example.com' },
+    { id: '4', nombre: 'Ana Martinez', email: 'ana.martinez@example.com' },
+    { id: '5', nombre: 'Luis Torres', email: 'luis.torres@example.com' },
+    { id: '6', nombre: 'Sofia Hernandez', email: 'sofia.hernandez@example.com' },
+    { id: '7', nombre: 'Diego Lopez', email: 'diego.lopez@example.com' },
+    { id: '8', nombre: 'Lucia Morales', email: 'lucia.morales@example.com' },
+    { id: '9', nombre: 'Javier Sanchez', email: 'javier.sanchez@example.com' },
+    { id: '10', nombre: 'Valeria Castillo', email: 'valeria.castillo@example.com' }
+];
 
 // Ruta para obtener todos los usuarios
 app.get('/api/usuarios', (req, res) => {
