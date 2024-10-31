@@ -1,7 +1,26 @@
 const express = require('express');
 const cors = require('cors');
+const mysql = require('mysql2'); // Importa mysql2 para la conexión a la base de datos
+
 const app = express();
 const PORT = 5000; // Puerto donde se ejecutará el servidor
+
+// Conexión a la base de datos MySQL
+const db = mysql.createConnection({
+    host: 'localhost',       // Host de tu base de datos
+    user: 'root',            // Usuario de la base de datos
+    password: '',            // Contraseña, dejar en blanco si no tiene
+    database: 'ferremax_db'  // Nombre de la base de datos
+});
+
+// Conectar a la base de datos y manejar errores
+db.connect((err) => {
+    if (err) {
+        console.error('Error de conexión a la base de datos:', err);
+        return;
+    }
+    console.log('Conexión exitosa a la base de datos ferremax_db');
+});
 
 // Middleware
 app.use(cors());
