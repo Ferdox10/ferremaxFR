@@ -1,0 +1,102 @@
+/* Configuración general */
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de los encabezados */
+h1, h2 {
+    color: #fff;
+    background-color: #ff6600; /* Naranja para los encabezados */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estructura del contenedor de la página */
+.container {
+    margin-top: 20px;
+}
+
+/* Mensaje Inspiracional */
+#inspirationalMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #0033cc; /* Azul para las palabras sabias */
+    font-size: 1.2rem;
+}
+
+/* Estilos para el pie de página */
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #ff6600; /* Naranja para el pie de página */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #ffc107; /* Amarillo dorado */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 10px 0px #ffc107;
+}
+
+/* Emoji de herramienta flotante */
+#toolEmoji {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+}
+
+/* Navbar */
+.navbar-brand, .nav-link {
+    color: #fff;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #ff6600; /* Naranja al pasar el mouse */
+}
+
+/* Formularios */
+.form-control {
+    border-radius: 5px;
+}
+
+/* Botón principal */
+.btn-primary {
+    background-color: #0033cc; /* Azul para el botón de inicio de sesión */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #002a80; /* Azul oscuro al pasar el mouse */
+}
+
+/* Contenido del modal */
+.modal-content {
+    border-radius: 5px;
+}
+
+.modal-dialog {
+    max-width: 500px;
+}

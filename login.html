@@ -6,23 +6,6 @@
     <title>Ferretería Ferremax - Iniciar Sesión</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .modal-dialog {
-            max-width: 500px;
-        }
-        #logoutButton {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        #inspirationalMessage {
-            text-align: center;
-            margin-top: 20px;
-            font-style: italic;
-        }
-    </style>
 </head>
 <body>
     <header class="bg-dark text-white text-center py-3">
@@ -50,35 +33,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
             </div>
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            <p class="mt-2">¿Olvidaste tu <a href="#" data-toggle="modal" data-target="#recoverModal">contraseña</a>?</p>
         </form>
-        <div id="inspirationalMessage">
-            "La verdadera medida de un hombre no se encuentra en los momentos de comodidad y conveniencia, sino en aquellos en los que desafía la adversidad." – Martin Luther King Jr.
-        </div>
-    </div>
-
-    <!-- Modal de Recuperación de Contraseña -->
-    <div class="modal fade" id="recoverModal" tabindex="-1" role="dialog" aria-labelledby="recoverModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="recoverModalLabel">Recuperación de Contraseña</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="recoverForm">
-                        <div class="form-group">
-                            <label for="recoverEmail">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="recoverEmail" placeholder="Ingresa tu correo electrónico" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Instrucciones</button>
-                    </form>
-                    <div id="recoverMessage" class="mt-3"></div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <footer class="bg-dark text-white p-3 text-center mt-5">
@@ -88,41 +43,37 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script>
-        // Función para manejar el envío del formulario de recuperación
-        document.getElementById('recoverForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('recoverEmail').value;
-            const messageDiv = document.getElementById('recoverMessage');
-            
-            // Aquí puedes añadir la lógica para enviar el correo de recuperación
-            messageDiv.innerHTML = '<p>Las instrucciones para recuperar tu contraseña han sido enviadas a tu correo electrónico.</p>';
-        });
-
-        // Verificar si el usuario está registrado
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('userLoggedIn')) {
-                document.getElementById('loginForm').style.display = 'none'; // Ocultar el formulario de inicio de sesión
-                document.getElementById('logoutButton').style.display = 'block'; // Mostrar el botón de cierre de sesión
-            }
-        });
-
-        // Manejar el envío del formulario de inicio de sesión
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            // Aquí deberías implementar una verificación real
-            localStorage.setItem('userLoggedIn', 'true');
-            document.getElementById('loginForm').style.display = 'none'; // Ocultar el formulario
-            document.getElementById('logoutButton').style.display = 'block'; // Mostrar el botón de cierre de sesión
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('http://localhost:3001/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('userLoggedIn', 'true');
+                    alert('Inicio de sesión exitoso');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Error en el inicio de sesión: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error en el inicio de sesión:', error));
         });
 
-        // Manejar el clic en el botón de cierre de sesión
         document.getElementById('logoutButton').addEventListener('click', function() {
             localStorage.removeItem('userLoggedIn');
-            document.getElementById('loginForm').style.display = 'block'; // Mostrar el formulario de inicio de sesión
-            document.getElementById('logoutButton').style.display = 'none'; // Ocultar el botón de cierre de sesión
-            window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+            alert('Sesión cerrada');
+            window.location.reload();
         });
     </script>
 </body>

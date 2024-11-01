@@ -46,15 +46,31 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
     <script>
-        // Manejar el envío del formulario de registro
         document.getElementById('registerForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            // Aquí deberías implementar una verificación real
-            localStorage.setItem('userLoggedIn', 'true');
-            alert('Registro exitoso');
-            window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('http://localhost:3001/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Registro exitoso');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Error en el registro: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error en el registro:', error));
         });
     </script>
 </body>
