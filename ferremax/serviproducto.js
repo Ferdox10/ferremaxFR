@@ -92,7 +92,7 @@ app.delete('/api/productos/eliminar/:id', (req, res) => {
         if (results.affectedRows === 0) {
             return res.status(404).json({ message: 'Producto no encontrado' });
         }
-        res.status(204).send();
+        res.json({ message: 'Producto eliminado exitosamente' });
     });
 });
 
