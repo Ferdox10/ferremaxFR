@@ -1,7 +1,7 @@
 /* Configuración general */
 body {
     font-family: "Arial", sans-serif;
-    background-color: #f8f9fa;
+    background-color: #6db3f8;
     margin: 0;
     padding: 0;
 }
@@ -9,7 +9,7 @@ body {
 /* Estilos de los encabezados */
 h1, h2 {
     color: #fff;
-    background-color: #ff6600; /* Naranja para los encabezados */
+    background-color: #693b1c; /* Naranja para los encabezados */
     padding: 10px;
     border-radius: 5px;
 }
@@ -42,7 +42,7 @@ footer {
 
 /* Estilos para el botón */
 button {
-    background-color: #ffc107; /* Amarillo dorado */
+    background-color: #022ef5d3; /* Amarillo dorado */
     border: none;
     color: white;
     padding: 15px 32px;

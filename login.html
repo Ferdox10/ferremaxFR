@@ -23,58 +23,82 @@
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form id="loginForm">
+        <form id="loginForm" role="form" aria-label="Formulario de inicio de sesión">
+            <!-- Formulario de inicio de sesión -->
             <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+                <label for="email" aria-required="true">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required aria-describedby="email-desc">
+                <span id="email-desc" aria-hidden="true">Ingrese su correo electrónico</span>
             </div>
             <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                <label for="password" aria-required="true">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" required aria-describedby="password-desc">
+                <span id="password-desc" aria-hidden="true">Ingrese su contraseña</span>
+                <input type="checkbox" id="show-password" aria-label="Mostrar contraseña">
+                <label for="show-password" aria-hidden="true">Mostrar contraseña</label>
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <div class="form-group">
+                <input type="checkbox" id="remember-me" aria-label="Recuerdame">
+                <label for="remember-me" aria-hidden="true">Recuerdame</label>
+            </div>
+            <button type="submit" aria-label="Iniciar sesión">Iniciar sesión</button>
         </form>
     </div>
 
     <footer class="bg-dark text-white p-3 text-center mt-5">
         <p>&copy; 2024 Ferretería Ferremax - Todos los derechos reservados</p>
     </footer>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Código JavaScript para el formulario de inicio de sesión
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-            fetch('http://localhost:3001/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    localStorage.setItem('userLoggedIn', 'true');
-                    alert('Inicio de sesión exitoso');
-                    window.location.href = 'index.html';
-                } else {
-                    alert('Error en el inicio de sesión: ' + data.message);
-                }
-            })
-            .catch(error => console.error('Error en el inicio de sesión:', error));
-        });
+    fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            localStorage.setItem('userLoggedIn', 'true');
+            alert('Inicio de sesión exitoso');
+            window.location.href = 'index.html';
+        } else {
+            alert('Error en el inicio de sesión: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error en el inicio de sesión:', error));
+});
 
-        document.getElementById('logoutButton').addEventListener('click', function() {
-            localStorage.removeItem('userLoggedIn');
-            alert('Sesión cerrada');
-            window.location.reload();
-        });
-    </script>
-</body>
-</html>
+document.getElementById('logoutButton').addEventListener('click', function() {
+    localStorage.removeItem('userLoggedIn');
+    alert('Sesión cerrada');
+    window.location.reload();
+});
+
+document.getElementById('show-password').addEventListener('change', function() {
+    if (this.checked) {
+        document.getElementById('password').type = 'text';
+    } else {
+        document.getElementById('password').type = 'password';
+    }
+});
+document.getElementById('remember-me').addEventListener('change', function() {
+    if (this.checked) {
+        localStorage.setItem('username', document.getElementById('email').value);
+        localStorage.setItem('password', document.getElementById('password').value);
+    } else {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+    }
+});
+</script>
