@@ -4,6 +4,7 @@
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
+    "ferremaxfr": "file:",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.3",
     "react-bootstrap": "^2.10.5"
