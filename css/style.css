@@ -1,23 +1,69 @@
+/* Estilo personalizado para el encabezado */
+.custom-header {
+    background-color: #693b1c; /* Color de fondo deseado */
+    color: #ffffff; /* Color del texto */
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Estilo personalizado para el pie de página */
+.custom-footer {
+    background-color: #613010c9; /* Color de fondo deseado */
+    color: #ffffff; /* Color del texto */
+    padding: 10px;
+    text-align: center;
+}
+
+
 /* Configuración general */
 body {
     font-family: "Arial", sans-serif;
-    background-color: #6db3f8;
+    background-color: #9dbcdb;
     margin: 0;
     padding: 0;
 }
 
 /* Estilos de los encabezados */
 h1, h2 {
-    color: #fff;
+    color: #ffffff;
     background-color: #693b1c; /* Naranja para los encabezados */
     padding: 10px;
     border-radius: 5px;
 }
 
+/* Estilos de los titulos terceros */
+h3 {
+    color: #ffffff;
+    background-color: #000000a4; /* Naranja para los encabezados */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos de los titulos h5 */
+h5 {
+    color: #000000;
+    background-color: #75df1e8c; /* Naranja para los encabezados */
+    padding: 10px;
+    border-radius: 5px;
+}
 /* Estructura del contenedor de la página */
 .container {
     margin-top: 20px;
 }
+
+/* Color precios */
+.price-text {
+    color: #0a0a09;         /* Cambia el color del precio */
+    font-weight: bold;      /* Hace el texto del precio más grueso */
+    font-size: 1.2em;       /* Aumenta el tamaño de la fuente */
+    border: 1px solid #ff5733; /* Añade un borde alrededor del precio */
+    padding: 5px;           /* Añade espacio entre el borde y el texto */
+    border-radius: 5px;     /* Bordes redondeados */
+    background-color: #64cc1e; /* Fondo detrás del precio */
+    display: inline-block;  /* Para que el borde solo abarque el texto */
+}
+
 
 /* Mensaje Inspiracional */
 #inspirationalMessage {
@@ -28,17 +74,7 @@ h1, h2 {
     font-size: 1.2rem;
 }
 
-/* Estilos para el pie de página */
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: #ff6600; /* Naranja para el pie de página */
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
+
 
 /* Estilos para el botón */
 button {
@@ -100,3 +136,106 @@ button:hover {
 .modal-dialog {
     max-width: 500px;
 }
+
+/* Fondo del contenedor del formulario */
+.container {
+    background-image: url("../images/fondo-formulario.jpg"); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    color: rgb(255, 255, 255); /* Cambia el color del texto si es necesario */
+}
+
+/* Ajustes adicionales para el formulario */
+#loginForm {
+    background-color: rgba(255, 255, 255, 0.219); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+}
+/* Estilo para la imagen de fondo que cubre toda la página */
+body {
+    background-image: url("../images/fondo-principal.jpg"); /* Reemplaza con la URL de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Fondo semitransparente para mejorar la legibilidad */
+.content {
+    background-color: rgba(255, 255, 255, 0.247); /* Fondo blanco con opacidad */
+    padding: 20px;
+    border-radius: 8px;
+
+
+}
+
+/* Estilo para el encabezado */
+header {
+    position: relative; /* Necesario para trabajar con z-index */
+    background-image: url("../images/encabezado2.jpg"); /* Corrige la sintaxis de la URL */
+    background-size: cover; /* Asegura que la imagen cubra todo el encabezado */
+    background-position: center; /* Centra la imagen por defecto */
+    background-attachment: fixed; /* Hace que la imagen de fondo no se desplace al hacer scroll */
+    color: white; /* Ajusta el color del texto */
+    padding: 20px;
+    text-align: center;
+    z-index: 1; /* Asegúrate de que el encabezado tenga un z-index */
+    transition: background-position 0.5s ease; /* Transición suave al mover la imagen */
+}
+
+/* Capa de superposición (overlay) para la imagen */
+header::before {
+    content: ""; /* Necesario para mostrar el pseudo-elemento */
+    position: absolute; /* Lo coloca encima del encabezado */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+    z-index: 0; /* Lo coloca detrás de la imagen */
+}
+
+/* Asegura que el texto esté por encima de la capa de superposición */
+header h1, header h2, header p {
+    position: relative;
+    z-index: 2; /* Hace que el texto esté encima de la capa */
+}
+
+/* Asegura que los elementos del menú estén por encima */
+nav {
+    position: relative; /* Asegura que el menú esté por encima de la capa de opacidad */
+    z-index: 2; /* Asegura que el menú esté encima de la capa de opacidad */
+}
+
+/* Asegura que los enlaces dentro del menú estén por encima de la capa de opacidad */
+nav a {
+    color: white; /* Color de texto para los enlaces */
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
+}
+
+/* Efecto de movimiento de la imagen de fondo cuando el mouse pasa sobre el encabezado */
+header:hover {
+    background-position: right bottom; /* Cambia la posición cuando el mouse pasa sobre el encabezado */
+}
+
+/* Si quieres mover la imagen cuando se hace scroll */
+header.scrolled {
+    background-position: center top; /* Puedes cambiar 'center top' por otras posiciones, como 'left bottom', etc. */
+}
+
+
+
+
+
