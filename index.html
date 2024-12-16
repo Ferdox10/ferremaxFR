@@ -8,19 +8,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <header class="custom-header">
-        <h1>Ferretería Ferremax</h1>
-        <nav>
-            <a href="index.html" class="text-white mx-2">Inicio</a>
-            <a href="productos.html" class="text-white mx-2">Productos</a>
-            <a href="contact.html" class="text-white mx-2">Contacto</a>
-            <a href="policies.html" class="text-white mx-2">Políticas</a>
-            <a href="login.html" class="text-white mx-2">Iniciar Sesión</a>
-            <a href="register.html" class="text-white mx-2">Registrarse</a>
-        </nav>
+    <header class="custom-header bg-dark text-white py-3">
+        <div class="container">
+            <h1 class="text-center">Ferretería Ferremax</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="policies.html">Políticas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">Registrarse</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <div class="container mt-5">
+    <main class="container mt-5">
         <h2 class="text-center mb-4">Bienvenido a Ferretería Ferremax</h2>
         <p>Desde 1999, Ferretería Ferremax ha sido un pilar en la industria de la construcción. Fundada por la familia Rodríguez, nuestra empresa ha crecido de una pequeña tienda local a un referente en calidad y servicio en la región. Nuestro compromiso es ofrecer productos de alta calidad y un servicio excepcional.</p>
         <h3 class="text-center mt-5">Nuestros Productos Más Vendidos</h3>
@@ -38,7 +47,7 @@
             <!-- Producto 2 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="images/taladro-rotomartillo.jpg" class="card-img-top" alt="Lijadora Orbital">
+                    <img src="images/taladro-rotomartillo.jpg" class="card-img-top" alt="Rotomartillo">
                     <div class="card-body">
                         <h5 class="card-title">Rotomartillo</h5>
                         <p class="card-text price-text">$75.00</p>
@@ -56,10 +65,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="custom-footer">
-        <p>&copy; 2024 Ferretería Ferremax - Todos los derechos reservados</p>
+    <footer class="custom-footer bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Ferretería Ferremax - Todos los derechos reservados</p>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
